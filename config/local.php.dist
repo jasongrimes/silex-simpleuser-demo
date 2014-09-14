@@ -1,0 +1,14 @@
+<?php
+/**
+ * Template for a local configuration file with data that should not be committed to version control.
+ *
+ * Copy this to local.php and customize it for the local environment.
+ */
+
+$app['db.options'] = array(
+    'driver'   => 'pdo_mysql',
+    'dbname' => 'simpleuser_demo',
+    'host' => 'localhost',
+    'user' => 'simpleuser_demo',
+    'password' => '',
+);
