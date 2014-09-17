@@ -1,0 +1,68 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    {% if app.user %}
+        <div class="alert alert-info">
+            <p class="lead">
+                <strong>You are logged in!</strong>
+                Now try this:
+            </p>
+
+            <ul class="list-inline" style="margin-top: 5px;">
+                <li><a href="{{ path('user') }}">View your profile</a></li>
+                <li><a href="{{ path('user.edit', { id: app.user.id }) }}">Edit your profile</a></li>
+                <li><a href="{{ path('user.list') }}">View other users</a></li>
+                <li><a href="{{ path('user.logout') }}">Sign out</a></li>
+            </ul>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <p style="margin-top: 5px;">
+                    Note that as an admin, you can see more information in other users' profiles,
+                    you can edit other users' profiles,
+                    and you can change assigned roles.
+                </p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="jumbotron">
+        <h1>Silex SimpleUser demo</h1>
+
+        <p>
+            This is an example application to demonstrate the
+            <a href="https://github.com/jasongrimes/silex-simpleuser">Silex SimpleUser</a> library.
+        </p>
+        <p>
+            See the
+            <a href="http://www.jasongrimes.org/?p=678">Silex SimpleUser tutorial</a> for details.
+        </p>
+    </div>
+
+    <p class="lead">
+        Try <a href="{{ path('user.login') }}">signing in</a> with these accounts to experiment:
+    </p>
+
+    <ul class="list-inline lead">
+
+        <li style="margin-right: 30px; margin-bottom: 0px;">
+            <strong>Adminstrator</strong><br/>
+            <code>admin@example.com</code><br/>
+            password: <code>admin</code>
+        </li>
+
+        <li>
+            <strong>Regular user</strong><br/>
+            <code>user@example.com</code><br/>
+            password: <code>user</code>
+        </li>
+    </ul>
+
+    <p>
+        Feel free to create and edit users, but please don't change the email or password of those two accounts.
+    </p>
+    <p>
+        Note that the demo user database will automatically reset every hour, on the hour.
+    </p>
+
+{% endblock %}
