@@ -1,0 +1,37 @@
+{% extends layout_template  %}
+
+{% block title %}{{ user.displayName }}{% endblock %}
+
+{% block content %}
+
+    <div class="media">
+        <img class="media-object pull-left" src="{{ imageUrl }}" width="80" height="80">
+
+        <div class="media-body">
+            <h1 class="media-heading">{{ user.displayName }}</h1>
+
+            {% if is_granted('EDIT_USER', user) %}
+                <div class="text-muted">
+                    {{ user.email }}
+                </div>
+            {% endif %}
+
+            {# Example of accessing a custom field #}
+            {% if user.twitterUsername %}
+                <div>
+                    <a href="http://twitter.com/{{ user.twitterUsername }}">
+                        {{ user.twitterUsername }}
+                    </a>
+                </div>
+            {% endif %}
+
+            {% if is_granted('EDIT_USER', user) %}
+                <div style="margin-top: 10px;">
+                    <a href="{{ path('user.edit', {'id': user.id}) }}"><span class="glyphicon glyphicon-edit" style="margin-right: 5px;"></span>Edit</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

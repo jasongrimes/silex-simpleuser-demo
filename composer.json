@@ -4,5 +4,8 @@
         "silex/silex": "~1.0",
         "symfony/twig-bridge": "~2.3",
         "jasongrimes/silex-simpleuser": "~1.0"
+    },
+    "autoload": {
+        "psr-0": {"Demo": "src/"}
     }
 }

@@ -59,8 +59,15 @@ $app['security.firewalls'] = array(
     ),
 );
 
-$app['user.controller.options'] = array(
+$app['user.options'] = array(
+    'userClass' => '\Demo\User',
     'layoutTemplate' => 'layout.twig',
+    'viewTemplate' => 'view.twig',
+    'controllers' => array(
+        'edit' => array(
+            'customFields' => array('twitterUsername' => 'Twitter Username')
+        ),
+    ),
 );
 
 // Note that this db config is here for example only.
