@@ -2,7 +2,5 @@
 
 // configure your app for the production environment
 
-$app['twig.path'] = array(__DIR__.'/../templates');
-$app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
-
-require 'local.php';
+// For the sake of demonstration,
+// everything that normally goes in here was moved to src/app.php.
