@@ -50,7 +50,7 @@
         <div class="container">
             {% if app.session.flashbag.has('alert') %}
                 {% for flashMessage in app.session.flashbag.get('alert') %}
-                    <div class="alert info">{{ flashMessage }}</div>
+                    <div class="alert alert-info">{{ flashMessage }}</div>
                 {% endfor %}
             {% endif %}
 
