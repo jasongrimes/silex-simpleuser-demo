@@ -2,7 +2,7 @@
 --
 -- Use this to reset the demo database periodically, with a crontab like this:
 --
--- 0 * * * * root /usr/bin/mysql --defaults-extra-file={mysql.cnf} simpleuser_demo < /var/www/silex-simpleuser-demo/config/simpleuser_demo.sql
+-- 0 * * * * root /usr/bin/mysql --defaults-extra-file={mysql.cnf} {db} < /path/to/silex-simpleuser-demo/config/simpleuser_demo.sql
 --
 
 TRUNCATE TABLE user_custom_fields;
