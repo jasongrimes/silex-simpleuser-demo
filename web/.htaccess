@@ -1,0 +1,6 @@
+FallbackResource /index.php
+<IfModule php5_module>
+
+    php_value newrelic.appname "SimpleUser Demo"
+
+</IfModule>
