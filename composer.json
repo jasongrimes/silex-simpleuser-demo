@@ -1,8 +1,5 @@
 {
     "require": {
-        "php": ">=5.3.3",
-        "silex/silex": "~1.0",
-        "symfony/twig-bridge": "~2.3",
         "jasongrimes/silex-simpleuser": "~1.0"
     },
     "autoload": {
