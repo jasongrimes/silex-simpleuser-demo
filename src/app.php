@@ -62,13 +62,13 @@ $app['security.firewalls'] = array(
 
 $app['user.options'] = array(
     'userClass' => '\Demo\User',
+    'isUsernameRequired' => false,
     'layoutTemplate' => 'layout.twig',
     'viewTemplate' => 'view.twig',
     'controllers' => array(
         'edit' => array(
             'customFields' => array(
-                'username' => 'Username',
-                'twitterUsername' => 'Twitter Username',
+                'twitterUsername' => 'Twitter username',
             ),
         ),
     ),
