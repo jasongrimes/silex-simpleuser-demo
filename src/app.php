@@ -40,10 +40,11 @@ $app['twig.path'] = array(__DIR__.'/../templates');
 $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
 
 $app['security.firewalls'] = array(
+    /*
     // Ensure that the login page is accessible to all
     'login' => array(
         'pattern' => '^/user/login$',
-    ),
+    ),*/
     'secured_area' => array(
         'pattern' => '^.*$',
         'anonymous' => true,
