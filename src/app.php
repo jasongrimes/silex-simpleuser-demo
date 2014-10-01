@@ -65,7 +65,10 @@ $app['user.options'] = array(
     'viewTemplate' => 'view.twig',
     'controllers' => array(
         'edit' => array(
-            'customFields' => array('twitterUsername' => 'Twitter Username')
+            'customFields' => array(
+                'username' => 'Username',
+                'twitterUsername' => 'Twitter Username',
+            ),
         ),
     ),
 );
