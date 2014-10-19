@@ -71,6 +71,16 @@ $app['user.options'] = array(
     'userClass' => '\Demo\User',
 );
 
+// Example of defining a custom password strength validator.
+// Must return an error string on failure, or null on success.
+$app['user.passwordStrengthValidator'] = $app->protect(function(SimpleUser\User $user, $password) {
+    if (strlen($password) < 4) {
+        return 'Password must be at least 4 characters long.';
+    }
+    if (strtolower($password) == strtolower($user->getName())) {
+        return 'Your password cannot be the same as your name.';
+    }
+});
 
 // Note that this db config is here for example only.
 // It actually gets overwritten by configuration in config/local.php,
@@ -82,7 +92,6 @@ $app['db.options'] = array(
     'user' => 'mydbuser',
     'password' => 'mydbpassword',
 );
-
 
 // Local environment configuration that doesn't get committed to version control.
 require __DIR__ . '/../config/local.php';
