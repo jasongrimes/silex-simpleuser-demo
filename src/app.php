@@ -15,6 +15,7 @@ $app->register(new Provider\SessionServiceProvider());
 $app->register(new Provider\ServiceControllerServiceProvider());
 $app->register(new Provider\UrlGeneratorServiceProvider());
 $app->register(new Provider\TwigServiceProvider());
+$app->register(new Provider\SwiftmailerServiceProvider());
 
 // Register the SimpleUser service provider.
 $simpleUserProvider = new SimpleUser\UserServiceProvider();
@@ -61,18 +62,15 @@ $app['security.firewalls'] = array(
 );
 
 $app['user.options'] = array(
-    'userClass' => '\Demo\User',
-    'isUsernameRequired' => false,
-    'layoutTemplate' => 'layout.twig',
-    'viewTemplate' => 'view.twig',
-    'controllers' => array(
-        'edit' => array(
-            'customFields' => array(
-                'twitterUsername' => 'Twitter username',
-            ),
-        ),
+    'templates' => array(
+        'layout' => 'layout.twig',
+        'view' => 'view.twig',
     ),
+    'mailer' => array('enabled' => false),
+    'editCustomFields' => array('twitterUsername' => 'Twitter username'),
+    'userClass' => '\Demo\User',
 );
+
 
 // Note that this db config is here for example only.
 // It actually gets overwritten by configuration in config/local.php,
